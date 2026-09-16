@@ -1,1 +1,9 @@
-Artificial Intelligence is the simulation of human intelligence processes by machines, especially computer systems.
+Artificial Intelligence is a branch of computer science.
+
+AI systems can learn from data and identify patterns.
+
+Machine learning allows computers to improve their performance
+without being explicitly programmed for every task.
+
+AI is used in healthcare, education, navigation, robotics,
+recommendation systems and virtual assistants.
