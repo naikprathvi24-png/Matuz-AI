@@ -4,3 +4,4 @@ streamlit
 groq
 pypdf
 python-docx
+PyMuPDF
