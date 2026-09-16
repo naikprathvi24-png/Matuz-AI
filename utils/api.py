@@ -45,7 +45,7 @@ def get_ai_response(prompt):
                 {
                     "role": "system",
                     "content": (
-                        "You are an AI Notes Assistant. "
+                        "You are Matuz AI, an intelligent study assistant. "
                         "Help students understand study material clearly. "
                         "Give accurate, well-structured answers. "
                         "Use headings, bullet points and examples when useful."

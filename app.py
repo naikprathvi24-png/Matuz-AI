@@ -21,6 +21,10 @@ from utils.api import (
 from utils.text_cleaner import clean_text
 from utils.prompts import summary_prompt
 from utils.file_parser import extract_text
+# ============================================================
+# Matuz AI – Intelligent Study Assistant
+# Copyright © 2026 Prathvi Naik. All Rights Reserved.
+# ============================================================
 
 
 # ============================================================
@@ -28,7 +32,7 @@ from utils.file_parser import extract_text
 # ============================================================
 
 st.set_page_config(
-    page_title="AI Notes Summarizer",
+    page_title="Matuz AI",
     page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -86,7 +90,7 @@ if not st.session_state.logged_in:
     """
     <div class="login-container">
         <div class="login-logo">🧠</div>
-        <h1>AI Notes Summarizer</h1>
+        <h1>Matuz AI</h1>
         <p>Your AI-powered study assistant</p>
     </div>
     """,
@@ -423,7 +427,7 @@ with st.sidebar:
 # ============================================================
 
 st.markdown(
-    '<div class="main-header"><h1>🧠 AI Notes Summarizer</h1><p>Ask questions, summarize notes, upload files, analyze images or use your voice.</p></div>',
+    '<div class="main-header"><h1>🧠 Matuz AI</h1><p>Ask questions, summarize notes, upload files, analyze images or use your voice.</p></div>',
     unsafe_allow_html=True
 )
 
@@ -564,7 +568,7 @@ with col_message:
 
     user_text = st.text_input(
         "",
-        placeholder="Message AI Notes Summarizer...",
+        placeholder="Message Matuz AI...",
         label_visibility="collapsed",
         key="composer_message",
     )
