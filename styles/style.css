@@ -1,12 +1,12 @@
 /* ============================================================
-   AI NOTES SUMMARIZER
-   PREMIUM CHAT UI
-   VOICE RECORDER COMPOSER
+   MATUZAI
+   PREMIUM STREAMLIT UI
+   COMPLETE REPLACEMENT STYLESHEET
    ============================================================ */
 
 
 /* ============================================================
-   GLOBAL
+   1. GLOBAL RESET
    ============================================================ */
 
 * {
@@ -35,7 +35,7 @@ body {
 
 
 /* ============================================================
-   MAIN STREAMLIT CONTAINER
+   2. MAIN STREAMLIT CONTAINER
    ============================================================ */
 
 .block-container {
@@ -46,12 +46,12 @@ body {
 
 
 /* ============================================================
-   SIDEBAR
+   3. SIDEBAR
    ============================================================ */
 
 section[data-testid="stSidebar"] {
-    background: #ffffff;
-    border-right: 1px solid #e5e7eb;
+    background: #ffffff !important;
+    border-right: 1px solid #e5e7eb !important;
 }
 
 section[data-testid="stSidebar"] > div {
@@ -60,94 +60,270 @@ section[data-testid="stSidebar"] > div {
 
 
 /* ============================================================
-   SIDEBAR BRAND
+   4. HIDE STREAMLIT DEFAULT PAGE NAVIGATION
    ============================================================ */
 
-.sidebar-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 4px 14px 4px;
-}
-
-.sidebar-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #eef2ff;
-    font-size: 22px;
-}
-
-.sidebar-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: #111827;
-}
-
-.sidebar-subtitle {
-    margin-top: 2px;
-    font-size: 12px;
-    color: #6b7280;
+[data-testid="stSidebarNav"] {
+    display: none !important;
 }
 
 
 /* ============================================================
-   SIDEBAR BUTTONS
+   5. SIDEBAR BRAND
+   ============================================================ */
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 5px 4px 18px 4px;
+}
+
+.sidebar-brand-logo {
+    width: 42px;
+    height: 42px;
+
+    object-fit: contain;
+    display: block;
+}
+
+.sidebar-brand-name {
+    font-size: 21px;
+    font-weight: 700;
+
+    color: #111827 !important;
+}
+
+
+/* ============================================================
+   6. SIDEBAR DIVIDER
+   ============================================================ */
+
+.sidebar-divider {
+    width: 100%;
+    height: 1px;
+
+    background: #e5e7eb;
+
+    margin: 8px 0 14px 0;
+}
+
+
+/* ============================================================
+   7. SIDEBAR SPACING
+   ============================================================ */
+
+.sidebar-space {
+    height: 4px;
+}
+
+.sidebar-bottom-space {
+    min-height: 30vh;
+}
+
+
+/* ============================================================
+   8. NEW CHAT / PREVIOUS CHAT BUTTONS
    ============================================================ */
 
 section[data-testid="stSidebar"] .stButton > button {
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
-    background: #ffffff;
-    color: #374151;
+    width: 100% !important;
 
     min-height: 42px;
 
+    border-radius: 10px !important;
+
+    border: 1px solid #e5e7eb !important;
+
+    background: #ffffff !important;
+
+    color: #111827 !important;
+
+    box-shadow: none !important;
+
     transition:
         background 0.15s ease,
-        border 0.15s ease,
+        border-color 0.15s ease,
         transform 0.15s ease;
 }
 
+
+/* Text inside sidebar buttons */
+
+section[data-testid="stSidebar"] .stButton > button p,
+section[data-testid="stSidebar"] .stButton > button span,
+section[data-testid="stSidebar"] .stButton > button div {
+    color: #111827 !important;
+}
+
+
+/* Hover */
+
 section[data-testid="stSidebar"] .stButton > button:hover {
-    background: #f7f8fc;
-    border-color: #d1d5db;
+    background: #f5f3ff !important;
+
+    border-color: #c4b5fd !important;
+
+    color: #111827 !important;
+
     transform: translateY(-1px);
 }
 
+section[data-testid="stSidebar"] .stButton > button:hover p,
+section[data-testid="stSidebar"] .stButton > button:hover span,
+section[data-testid="stSidebar"] .stButton > button:hover div {
+    color: #111827 !important;
+}
+
 
 /* ============================================================
-   USER CARD
+   9. PREVIOUS CHATS TITLE
    ============================================================ */
 
-.user-card {
-    padding: 13px 14px;
+.recent-title {
+    display: block !important;
 
-    border-radius: 12px;
+    width: 100% !important;
 
-    background: #f7f8fc;
-    border: 1px solid #e5e7eb;
+    margin-top: 18px !important;
 
-    color: #374151;
-}
+    margin-bottom: 8px !important;
 
-.user-card strong {
-    font-size: 14px;
-}
+    padding: 4px !important;
 
-.user-card small {
-    color: #6b7280;
-    font-size: 12px;
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+
+    color: #000000 !important;
+
+    background: transparent !important;
 }
 
 
 /* ============================================================
-   MAIN HEADER
+   10. EMPTY PREVIOUS CHATS MESSAGE
+   ============================================================ */
+
+.empty-recent {
+    display: block !important;
+
+    width: 100% !important;
+
+    padding: 8px 4px !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.5;
+
+    color: #000000 !important;
+
+    background: transparent !important;
+}
+
+
+/* ============================================================
+   11. USER PROFILE
+   ============================================================ */
+
+.sidebar-profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 10px 6px;
+
+    margin-top: 8px;
+}
+
+
+/* Avatar */
+
+.profile-avatar {
+    width: 36px;
+    height: 36px;
+
+    min-width: 36px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    color: #ffffff !important;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* Profile information */
+
+.profile-details {
+    min-width: 0;
+
+    flex: 1;
+
+    overflow: hidden;
+}
+
+
+/* Name */
+
+.profile-name {
+    color: #111827 !important;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* Email */
+
+.profile-email {
+    color: #6b7280 !important;
+
+    font-size: 11px;
+
+    line-height: 1.3;
+
+    margin-top: 2px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ============================================================
+   12. MAIN HEADER
    ============================================================ */
 
 .main-header {
@@ -158,6 +334,7 @@ section[data-testid="stSidebar"] .stButton > button:hover {
     margin: 0;
 
     font-size: 30px;
+
     font-weight: 750;
 
     letter-spacing: -0.7px;
@@ -175,7 +352,7 @@ section[data-testid="stSidebar"] .stButton > button:hover {
 
 
 /* ============================================================
-   WELCOME HERO
+   13. WELCOME HERO
    ============================================================ */
 
 .hero-section {
@@ -183,9 +360,9 @@ section[data-testid="stSidebar"] .stButton > button:hover {
 
     margin: 25px auto 90px auto;
 
-    text-align: center;
-
     padding: 20px 15px;
+
+    text-align: center;
 }
 
 .hero-icon {
@@ -197,7 +374,9 @@ section[data-testid="stSidebar"] .stButton > button:hover {
     border-radius: 22px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     background: #eef2ff;
@@ -234,7 +413,7 @@ section[data-testid="stSidebar"] .stButton > button:hover {
 
 
 /* ============================================================
-   FEATURE GRID
+   14. FEATURE GRID
    ============================================================ */
 
 .feature-grid {
@@ -254,7 +433,7 @@ section[data-testid="stSidebar"] .stButton > button:hover {
 
 
 /* ============================================================
-   FEATURE CARD
+   15. FEATURE CARD
    ============================================================ */
 
 .feature-card {
@@ -274,7 +453,7 @@ section[data-testid="stSidebar"] .stButton > button:hover {
     transition:
         transform 0.18s ease,
         box-shadow 0.18s ease,
-        border 0.18s ease;
+        border-color 0.18s ease;
 }
 
 .feature-card:hover {
@@ -291,7 +470,9 @@ section[data-testid="stSidebar"] .stButton > button:hover {
     height: 42px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 12px;
@@ -323,67 +504,89 @@ section[data-testid="stSidebar"] .stButton > button:hover {
 
 
 /* ============================================================
-   CHAT MESSAGES
+   16. CHAT MESSAGES
    ============================================================ */
 
 [data-testid="stChatMessage"] {
     border-radius: 15px;
 }
 
-/* ============================================================
-   AI RESPONSE TEXT - FORCE DARK TEXT
-   ============================================================ */
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] {
+/* AI response */
+
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] {
     color: #202124 !important;
 }
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] p {
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] p {
     color: #292a30 !important;
+
     line-height: 1.7 !important;
 }
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] li {
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] li {
     color: #292a30 !important;
+
     line-height: 1.7 !important;
 }
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] ul,
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] ol {
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] ul,
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] ol {
     color: #292a30 !important;
 }
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] strong,
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] b {
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] strong,
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] b {
     color: #111827 !important;
 }
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] h1,
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] h2,
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] h3,
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] h4 {
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] h4 {
     color: #111827 !important;
 }
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] code {
+
+/* Code */
+
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] code {
     color: #202124 !important;
+
     background: #f1f3f5 !important;
 }
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] pre {
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] pre {
     background: #f1f3f5 !important;
+
     color: #202124 !important;
+
     border-radius: 10px;
 }
 
-[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] pre code {
+[data-testid="stChatMessage"]
+[data-testid="stMarkdownContainer"] pre code {
     color: #202124 !important;
+
     background: transparent !important;
 }
 
 
 /* ============================================================
-   COMPOSER AREA
+   17. COMPOSER
    ============================================================ */
 
 div[data-testid="stHorizontalBlock"] {
@@ -391,13 +594,7 @@ div[data-testid="stHorizontalBlock"] {
 }
 
 
-/* ============================================================
-   COMPOSER BUTTONS
-   ============================================================ */
-
-/*
-   All four composer controls.
-*/
+/* Composer buttons */
 
 div[data-testid="stHorizontalBlock"] .stButton > button {
     min-height: 54px;
@@ -413,29 +610,36 @@ div[data-testid="stHorizontalBlock"] .stButton > button {
     transition:
         transform 0.15s ease,
         background 0.15s ease,
-        border 0.15s ease;
+        border-color 0.15s ease;
 }
 
 
 /* ============================================================
-   PLUS BUTTON
+   18. PLUS BUTTON
    ============================================================ */
 
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:first-child
 .stButton > button {
-
     background: #20232c;
 
     border: 1px solid #343743;
 
-    color: #ffffff;
+    color: #ffffff !important;
+}
+
+div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]:first-child
+.stButton > button p,
+div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]:first-child
+.stButton > button span {
+    color: #ffffff !important;
 }
 
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:first-child
 .stButton > button:hover {
-
     background: #292c36;
 
     transform: translateY(-1px);
@@ -443,20 +647,18 @@ div[data-testid="column"]:first-child
 
 
 /* ============================================================
-   MESSAGE INPUT
+   19. MESSAGE INPUT
    ============================================================ */
 
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(2)
 div[data-testid="stTextInput"] {
-
     margin-top: 0;
 }
 
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(2)
 div[data-testid="stTextInput"] > div {
-
     border: none !important;
 
     background: transparent !important;
@@ -467,7 +669,6 @@ div[data-testid="stTextInput"] > div {
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(2)
 input {
-
     height: 54px;
 
     border-radius: 15px;
@@ -493,7 +694,6 @@ input {
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(2)
 input:focus {
-
     border-color: #b8bcc7 !important;
 
     box-shadow:
@@ -503,32 +703,38 @@ input:focus {
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(2)
 input::placeholder {
-
-    color: #8a91a0;
+    color: #8a91a0 !important;
 }
 
 
 /* ============================================================
-   MICROPHONE BUTTON
+   20. MICROPHONE BUTTON
    ============================================================ */
 
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(3)
 .stButton > button {
-
     background: #20232c;
 
     border: 1px solid #343743;
 
-    color: #ffffff;
+    color: #ffffff !important;
 
     font-size: 21px;
 }
 
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(3)
-.stButton > button:hover {
+.stButton > button p,
+div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]:nth-child(3)
+.stButton > button span {
+    color: #ffffff !important;
+}
 
+div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]:nth-child(3)
+.stButton > button:hover {
     background: #292c36;
 
     transform: translateY(-1px);
@@ -536,13 +742,12 @@ div[data-testid="column"]:nth-child(3)
 
 
 /* ============================================================
-   SEND BUTTON
+   21. SEND BUTTON
    ============================================================ */
 
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(4)
 .stButton > button {
-
     background: #2563eb !important;
 
     border: 1px solid #2563eb !important;
@@ -554,8 +759,16 @@ div[data-testid="column"]:nth-child(4)
 
 div[data-testid="stHorizontalBlock"]
 div[data-testid="column"]:nth-child(4)
-.stButton > button:hover {
+.stButton > button p,
+div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]:nth-child(4)
+.stButton > button span {
+    color: #ffffff !important;
+}
 
+div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]:nth-child(4)
+.stButton > button:hover {
     background: #1d4ed8 !important;
 
     border-color: #1d4ed8 !important;
@@ -565,7 +778,7 @@ div[data-testid="column"]:nth-child(4)
 
 
 /* ============================================================
-   POPOVER
+   22. POPOVER
    ============================================================ */
 
 div[data-testid="stPopover"] {
@@ -574,7 +787,7 @@ div[data-testid="stPopover"] {
 
 
 /* ============================================================
-   VOICE RECORDER PANEL
+   23. VOICE RECORDER
    ============================================================ */
 
 .voice-recorder {
@@ -592,7 +805,9 @@ div[data-testid="stPopover"] {
     margin: 0 auto 12px auto;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 18px;
@@ -626,28 +841,25 @@ div[data-testid="stPopover"] {
 
 
 /* ============================================================
-   STREAMLIT AUDIO INPUT
+   24. AUDIO INPUT
    ============================================================ */
 
 div[data-testid="stAudioInput"] {
-
     width: 100%;
 
     margin-top: 5px;
 }
 
 div[data-testid="stAudioInput"] button {
-
     border-radius: 12px !important;
 }
 
 
 /* ============================================================
-   RECORDING READY
+   25. RECORDING READY
    ============================================================ */
 
 .recording-ready {
-
     width: 100%;
 
     margin: 10px 0;
@@ -671,46 +883,66 @@ div[data-testid="stAudioInput"] button {
 
 
 /* ============================================================
-   FILE UPLOADER
+   26. FILE UPLOADER
    ============================================================ */
 
 div[data-testid="stFileUploader"] {
-
     border-radius: 12px;
 }
 
 
 /* ============================================================
-   LOGIN
+   27. LOGIN PAGE
    ============================================================ */
 
 .login-container {
-
     text-align: center;
 
     padding: 55px 20px 25px 20px;
+
+    background: rgba(255, 255, 255, 0.72) !important;
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 20px 60px rgba(79, 70, 229, 0.15);
+
+    border-radius: 24px;
 }
+
+
+/* Login logo */
 
 .login-logo {
+    width: 85px;
+    height: 85px;
 
-    width: 70px;
-    height: 70px;
-
-    margin: 0 auto 18px auto;
+    margin: 0 auto 12px auto;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
-
-    border-radius: 22px;
-
-    background: #eef2ff;
-
-    font-size: 34px;
 }
 
-.login-container h1 {
+.login-logo img {
+    width: 85px;
+    height: 85px;
 
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* Login title */
+
+.login-container h1 {
     margin: 0;
 
     font-size: 31px;
@@ -721,7 +953,6 @@ div[data-testid="stFileUploader"] {
 }
 
 .login-container p {
-
     margin-top: 8px;
 
     color: #6b7280;
@@ -731,21 +962,66 @@ div[data-testid="stFileUploader"] {
 
 
 /* ============================================================
-   LOGIN INPUTS
+   28. LOGIN INPUTS
    ============================================================ */
 
 .login-container ~ div[data-testid="stTextInput"] input {
-
     border-radius: 11px;
 }
 
 
 /* ============================================================
-   GENERAL BUTTONS
+   29. LOGIN PRIMARY BUTTON
+   ============================================================ */
+
+button[kind="primary"] {
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        ) !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+
+    border-radius: 12px !important;
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.25) !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+button[kind="primary"] p,
+button[kind="primary"] span,
+button[kind="primary"] div {
+    color: #ffffff !important;
+}
+
+button[kind="primary"]:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        ) !important;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 12px 25px rgba(99, 102, 241, 0.35) !important;
+}
+
+
+/* ============================================================
+   30. GENERAL BUTTONS
    ============================================================ */
 
 .stButton > button {
-
     border-radius: 11px;
 
     min-height: 42px;
@@ -753,17 +1029,49 @@ div[data-testid="stFileUploader"] {
 
 
 /* ============================================================
-   DIVIDERS
+   31. DIVIDERS
    ============================================================ */
 
 hr {
-
     border-color: #e5e7eb !important;
 }
 
 
 /* ============================================================
-   SCROLLBAR
+   32. LOGIN BACKGROUND
+   ============================================================ */
+
+.stApp {
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(129, 140, 248, 0.35),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(192, 132, 252, 0.30),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #eef2ff 0%,
+            #e0e7ff 45%,
+            #f5f3ff 100%
+        ) !important;
+}
+
+[data-testid="stAppViewContainer"] {
+    background: transparent !important;
+}
+
+[data-testid="stMain"] {
+    background: transparent !important;
+}
+
+
+/* ============================================================
+   33. SCROLLBAR
    ============================================================ */
 
 ::-webkit-scrollbar {
@@ -786,7 +1094,16 @@ hr {
 
 
 /* ============================================================
-   RESPONSIVE
+   34. REMOVE UNNECESSARY STREAMLIT SPACING
+   ============================================================ */
+
+div[data-testid="stVerticalBlock"] {
+    gap: 0.5rem;
+}
+
+
+/* ============================================================
+   35. RESPONSIVE
    ============================================================ */
 
 @media (max-width: 900px) {
@@ -799,7 +1116,6 @@ hr {
     .hero-section h1 {
         font-size: 28px;
     }
-
 }
 
 
@@ -825,14 +1141,4 @@ hr {
     .hero-section > p {
         font-size: 13px;
     }
-
-}
-
-
-/* ============================================================
-   REMOVE UNNECESSARY STREAMLIT SPACING
-   ============================================================ */
-
-div[data-testid="stVerticalBlock"] {
-    gap: 0.5rem;
 }

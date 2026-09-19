@@ -1,5 +1,5 @@
 import streamlit as st
-import fitz
+import pymupdf
 
 from auth import create_user, login_user
 
@@ -280,24 +280,8 @@ with st.sidebar:
 
     st.markdown(
         """
-        <div class="sidebar-logo">
-
-            <div class="sidebar-icon">
-                🧠
-            </div>
-
-            <div>
-
-                <div class="sidebar-title">
-                    AI Notes
-                </div>
-
-                <div class="sidebar-subtitle">
-                    Study Assistant
-                </div>
-
-            </div>
-
+        <div class="sidebar-brand">
+</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -382,38 +366,22 @@ with st.sidebar:
 
     st.divider()
 
-    # --------------------------------------------------------
-    # USER CARD
-    # --------------------------------------------------------
 
-    st.markdown(
-        f"""
-        <div class="user-card">
+    # ========================================================
+    # USER PROFILE
+    # ========================================================
 
-            <strong>
-                👤 {user["name"]}
-            </strong>
-
-            <br>
-
-            <small>
-                {user["email"]}
-            </small>
-
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # --------------------------------------------------------
+    
+    # ========================================================
     # LOGOUT
-    # --------------------------------------------------------
+    # ========================================================
 
     if st.button(
         "🚪 Logout",
         use_container_width=True,
         key="logout",
     ):
+
 
         st.session_state.logged_in = False
         st.session_state.user = None
@@ -956,7 +924,7 @@ if send_clicked:
                     f"📄 Opening {filename}..."
                 ):
 
-                    pdf_document = fitz.open(
+                    pdf_document = pymupdf.open(
                         stream=pdf_file.getvalue(),
                         filetype="pdf",
                     )
@@ -998,7 +966,8 @@ if send_clicked:
                     ):
 
                         pix = page.get_pixmap(
-                            matrix=fitz.Matrix(
+                            matrix=pymupdf.Matrix(
+                                
                                 1.5,
                                 1.5,
                             ),
